@@ -28,4 +28,9 @@ stages:
         dockerfile: '$(Build.SourcesDirectory)/19-Azure-DevOps-with-AKS/19-01-Azure-DevOps-BuildandPush-to-ACR/Git-Repository-files/Dockerfile'
         tags: |
           $(tag)
+    - task: Docker@2
+      inputs:
+        containerRegistry: 'sc_dockerhub'
+        repository: "aksimage"
+        command: 'push'
        
